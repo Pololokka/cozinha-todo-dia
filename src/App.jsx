@@ -12,6 +12,7 @@ const defaultRecipe = {
 
 function App() {
   const [recipeForm, setRecipeForm] = useState(defaultRecipe);
+  const [allRecipes, setAllRecipes] = useState();
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -31,9 +32,44 @@ function App() {
     setRecipeForm({ ...recipeForm, [name]: valueConverted });
   };
 
-  const handleSubmit = (event) => {
+  const postRecipe = async () => {
+    const postData = {
+      name: recipeForm.name,
+      ingredients: recipeForm.ingredients,
+      method: recipeForm.method,
+      image: recipeForm.image,
+    };
+
+    const connect = await fetch("http://localhost:5173/api/recipes", {
+      method: "POST",
+      body: JSON.stringify(postData),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+
+    if (!connect.ok) {
+      throw new Error("Opa! Não foi possível postar a receita!");
+    }
+
+    const convertedConnexion = await connect.json();
+    return convertedConnexion;
+  };
+
+  const getAllRecipes = async () => {
+    let recipes = await fetch("http://localhost:5173/api/recipes", {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => response.text())
+      .then((text) => console.log(text));
+    //setAllRecipes(recipes)
+    console.log(recipes);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(recipeForm);
+    postRecipe();
   };
 
   return (
@@ -82,6 +118,8 @@ function App() {
             className="texto btn__geral"
           />
         </form>
+
+        <input type="button" value="teste de api" onClick={getAllRecipes} />
       </main>
     </>
   );
