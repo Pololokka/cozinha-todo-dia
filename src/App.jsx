@@ -40,7 +40,7 @@ function App() {
       image: recipeForm.image,
     };
 
-    const connect = await fetch("http://localhost:5173/api/recipes", {
+    const connect = await fetch("http://localhost:3000/api/recipes", {
       method: "POST",
       body: JSON.stringify(postData),
       headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -55,13 +55,12 @@ function App() {
   };
 
   const getAllRecipes = async () => {
-    let recipes = await fetch("http://localhost:5173/api/recipes", {
+    let recipes = await fetch("http://localhost:3000/api/recipes", {
+      method: "GET",
       headers: {
         Accept: "application/json",
       },
-    })
-      .then((response) => response.text())
-      .then((text) => console.log(text));
+    }).then((res) => res.json());
     //setAllRecipes(recipes)
     console.log(recipes);
   };
