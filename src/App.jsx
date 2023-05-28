@@ -61,8 +61,7 @@ function App() {
         Accept: "application/json",
       },
     }).then((res) => res.json());
-    //setAllRecipes(recipes)
-    console.log(recipes);
+    setAllRecipes(recipes);
   };
 
   const handleSubmit = async (event) => {
@@ -119,6 +118,21 @@ function App() {
         </form>
 
         <input type="button" value="teste de api" onClick={getAllRecipes} />
+
+        <section className="recipe__container">
+          {allRecipes?.map((element) => {
+            return (
+              <div className="card__recipe">
+                <p className="subtitulo subtitulo-hover">{element.name}</p>
+                {element.ingredients?.map((item) => {
+                  return <p className="texto">{item}</p>;
+                })}
+                <p className="texto">{element.method}</p>
+                <img src={element.image} alt={element.name} />
+              </div>
+            );
+          })}
+        </section>
       </main>
     </>
   );
