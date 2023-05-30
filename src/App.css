@@ -200,7 +200,6 @@ select {
 html {
   background-color: var(--cor-fundo);
   text-align: center;
-  padding: 0.5em;
 }
 
 .form__container {
@@ -208,39 +207,6 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.border__bottom {
-  border-bottom: 5px solid var(--cor-borda);
-}
-
-.books__container {
-  display: grid;
-  padding: 1em 0.5em;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 1em;
-}
-
-.book--card__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--cor-card);
-  border-radius: 15px;
-  transition: 200ms;
-}
-
-.book--card__container:hover {
-  box-shadow: -5px 5px var(--cor-hover-2);
-}
-
-.book--card__buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-  flex-wrap: wrap;
 }
 
 .titulo {
@@ -320,23 +286,4 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.recipe__container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
-}
-
-.card__recipe {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--cor-card);
-  border-radius: 15px;
-  padding: 1em;
-  height: 80%;
 }
