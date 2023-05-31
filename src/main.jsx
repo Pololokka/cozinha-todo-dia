@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 
 import Home from "./Pages/Home/Index.jsx";
+import NewRecipe from "./Pages/NewRecipe/Index.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/newRecipe",
+        element: <NewRecipe />,
       },
     ],
   },
