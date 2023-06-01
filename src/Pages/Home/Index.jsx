@@ -2,6 +2,7 @@ import "./Styles.css";
 
 import { useEffect, useState } from "react";
 import { getAllRecipes } from "../../Func/API";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [allRecipes, setAllRecipes] = useState("");
@@ -18,10 +19,11 @@ const Home = () => {
             Todas as nossas receitas!
           </h2>
           <section className="recipe__container">
-            {allRecipes?.map((element, index) => {
+            {allRecipes?.map((element) => {
               return (
                 <div key={element._id} className="card__recipe">
                   <p className="subtitulo subtitulo-hover">{element.name}</p>
+                  <img src={element.image} alt={element.name} />
                   {element.ingredients?.map((item, index) => {
                     return (
                       <p key={index} className="texto">
@@ -30,7 +32,12 @@ const Home = () => {
                     );
                   })}
                   <p className="texto">{element.method}</p>
-                  <img src={element.image} alt={element.name} />
+                  <Link
+                    className="texto btn__geral"
+                    to={`/recipe/${element._id}`}
+                  >
+                    Ver Mais!
+                  </Link>
                 </div>
               );
             })}

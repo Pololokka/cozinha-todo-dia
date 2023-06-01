@@ -5,6 +5,7 @@ import "./index.css";
 
 import Home from "./Pages/Home/Index.jsx";
 import NewRecipe from "./Pages/NewRecipe/Index.jsx";
+import Recipe from "./Pages/Recipe/Index.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/newRecipe",
+        path: "/recipe/newRecipe",
         element: <NewRecipe />,
+      },
+      {
+        path: "/recipe/:id",
+        element: <Recipe />,
       },
     ],
   },
