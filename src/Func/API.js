@@ -30,6 +30,16 @@ export const getAllRecipes = async (setState) => {
   setState(recipes);
 };
 
+export const getRecipe = async (id, setState) => {
+  let recipes = await fetch(`http://localhost:3000/api/recipes/${id}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  }).then((res) => res.json());
+  setState(recipes);
+};
+
 //SUBMIT//
 
 export const defaultRecipe = {
