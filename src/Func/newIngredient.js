@@ -4,9 +4,13 @@ export const handleNewIngredient = (
   ingredient,
   setIngredient
 ) => {
-  setState((prevState) => ({
-    ...state,
-    ingredients: [...prevState.ingredients, ingredient],
-  }));
-  setIngredient("");
+  if (ingredient) {
+    console.log(ingredient);
+    setState((prevState) => ({
+      ...state,
+      ingredients: [...prevState.ingredients, ingredient],
+    }));
+    console.log(state);
+    //setIngredient("");
+  }
 };

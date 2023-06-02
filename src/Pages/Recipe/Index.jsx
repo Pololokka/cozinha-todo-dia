@@ -1,7 +1,7 @@
 import "./Styles.css";
 
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { getRecipe } from "../../Func/API";
 
@@ -30,6 +30,12 @@ const Recipe = () => {
               })}
               <p className="texto">{recipe.method}</p>
             </div>
+            <Link
+              className="texto btn__geral"
+              to={`/recipe/update/${recipe._id}`}
+            >
+              Atualizar Receita
+            </Link>
           </section>
         </main>
       </>

@@ -6,6 +6,7 @@ import "./index.css";
 import Home from "./Pages/Home/Index.jsx";
 import NewRecipe from "./Pages/NewRecipe/Index.jsx";
 import Recipe from "./Pages/Recipe/Index.jsx";
+import ChangeRecipe from "./Pages/ChangeRecipe/Index.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/recipe/:id",
         element: <Recipe />,
+      },
+      {
+        path: "/recipe/update/:id",
+        element: <ChangeRecipe />,
       },
     ],
   },
