@@ -215,7 +215,6 @@ html {
   font-size: var(--tamanho-fonte-titulo);
   transition: 200ms;
   padding: 0.5em;
-  display: inline-block;
 }
 
 .titulo-hover:hover {
@@ -228,7 +227,6 @@ html {
   font-size: var(--tamanho-fonte-subtitulo);
   transition: 200ms;
   padding: 0.5em;
-  display: inline-block;
 }
 
 .subtitulo-hover:hover {
@@ -241,7 +239,6 @@ html {
   font-size: var(--tamanho-fonte-texto);
   transition: 200ms;
   padding: 0.5em;
-  display: inline-block;
 }
 
 .texto-hover:hover {

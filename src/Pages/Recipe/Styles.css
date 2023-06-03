@@ -9,3 +9,7 @@
   height: 80%;
   margin: 0 2em;
 }
+
+.btn__delete:hover {
+  background-color: #e02345;
+}

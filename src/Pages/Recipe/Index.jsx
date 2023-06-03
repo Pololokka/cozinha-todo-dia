@@ -8,10 +8,21 @@ import { getRecipe } from "../../Func/API";
 const Recipe = () => {
   const [recipe, setRecipe] = useState("");
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getRecipe(id, setRecipe);
   }, []);
+
+  const handleDelete = async () => {
+    const connect = await fetch(`http://localhost:3000/api/recipes/${id}`, {
+      method: "DELETE",
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    });
+    if (connect.status === 200) {
+      navigate("/");
+    }
+  };
 
   if (recipe) {
     return (
@@ -36,6 +47,13 @@ const Recipe = () => {
             >
               Atualizar Receita
             </Link>
+
+            <input
+              type="button"
+              value="Deletar Receita"
+              className="texto btn__geral btn__delete"
+              onClick={handleDelete}
+            />
           </section>
         </main>
       </>
