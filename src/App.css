@@ -227,6 +227,7 @@ html {
   font-size: var(--tamanho-fonte-subtitulo);
   transition: 200ms;
   padding: 0.5em;
+  display: inline-block;
 }
 
 .subtitulo-hover:hover {
@@ -277,10 +278,4 @@ html {
   border: 4px solid var(--cor-borda);
   width: 50%;
   margin: 0.5em;
-}
-
-.form__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

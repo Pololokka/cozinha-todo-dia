@@ -11,5 +11,5 @@
 }
 
 .btn__delete:hover {
-  background-color: #e02345;
+  background-color: var(--cor-sombra-card-1);
 }
