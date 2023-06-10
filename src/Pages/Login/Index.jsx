@@ -8,11 +8,25 @@ const defaultLogin = {
   password: "",
 };
 
+const defaultReg = {
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
 const Login = () => {
   const [formLogin, setFormLogin] = useState(defaultLogin);
+  const [formReg, setFormReg] = useState(defaultReg);
 
-  const handleSubmitlogin = (event) => {
+  const handleSubmitLogin = (event) => {
+    event.preventDefault();
     console.log(formLogin);
+  };
+
+  const handleSubmitCreateAcc = (event) => {
+    event.preventDefault();
+    console.log(formReg);
   };
 
   return (
@@ -36,12 +50,12 @@ const Login = () => {
       </section>
 
       <section className="login__container">
-        <form onSubmit={handleSubmitlogin} className="form__container">
+        <form onSubmit={handleSubmitLogin} className="form__container">
           <label htmlFor="email" className="texto">
             Email
           </label>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
             className="texto input__geral"
@@ -51,11 +65,67 @@ const Login = () => {
             Senha
           </label>
           <input
-            type="text"
+            type="password"
             name="password"
             id="password"
             className="texto input__geral"
             onChange={(event) => handleChange(event, setFormLogin, formLogin)}
+          />
+
+          <input type="submit" value="Entrar!" className="texto btn__geral" />
+        </form>
+      </section>
+
+      <section className="login__container">
+        <form onSubmit={handleSubmitCreateAcc} className="form__container">
+          <label htmlFor="name" className="texto">
+            Usuário
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="texto input__geral"
+            onChange={(event) => handleChange(event, setFormReg, formReg)}
+          />
+
+          <label htmlFor="emailReg" className="texto">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="emailReg"
+            className="texto input__geral"
+            onChange={(event) => handleChange(event, setFormReg, formReg)}
+          />
+
+          <label htmlFor="passwordReg" className="texto">
+            Senha
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="passwordReg"
+            className="texto input__geral"
+            onChange={(event) => handleChange(event, setFormReg, formReg)}
+          />
+
+          <label htmlFor="confirmPasswordReg" className="texto">
+            Confirme sua senha
+          </label>
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPasswordReg"
+            className="texto input__geral"
+            onChange={(event) => handleChange(event, setFormReg, formReg)}
+          />
+
+          <input
+            type="submit"
+            value="Cadastrar!"
+            className="texto btn__geral"
           />
         </form>
       </section>
