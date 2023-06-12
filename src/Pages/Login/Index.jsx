@@ -1,18 +1,12 @@
 import "./Styles.css";
 
 import { handleChange } from "../../Func/handleChange";
+import { defaultReg, createAcc } from "../../Func/Account";
 import { useState } from "react";
 
 const defaultLogin = {
   email: "",
   password: "",
-};
-
-const defaultReg = {
-  name: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
 };
 
 const Login = () => {
@@ -26,6 +20,7 @@ const Login = () => {
 
   const handleSubmitCreateAcc = (event) => {
     event.preventDefault();
+    createAcc(formReg, setFormReg);
     console.log(formReg);
   };
 
