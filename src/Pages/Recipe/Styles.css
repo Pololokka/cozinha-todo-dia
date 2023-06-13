@@ -12,4 +12,5 @@
 
 .btn__delete:hover {
   background-color: var(--cor-sombra-card-1);
+  box-shadow: -4px 2px var(--cor-btn);
 }

@@ -1,27 +1,29 @@
 import "./Styles.css";
 
 import { handleChange } from "../../Func/handleChange";
-import { defaultReg, createAcc } from "../../Func/Account";
+import {
+  defaultReg,
+  defaultLogin,
+  createAcc,
+  loginAcc,
+} from "../../Func/Account";
 import { useState } from "react";
-
-const defaultLogin = {
-  email: "",
-  password: "",
-};
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formLogin, setFormLogin] = useState(defaultLogin);
   const [formReg, setFormReg] = useState(defaultReg);
+  const navigate = useNavigate();
 
   const handleSubmitLogin = (event) => {
     event.preventDefault();
+    loginAcc(formLogin, navigate);
     console.log(formLogin);
   };
 
   const handleSubmitCreateAcc = (event) => {
     event.preventDefault();
-    createAcc(formReg, setFormReg);
-    console.log(formReg);
+    createAcc(formReg);
   };
 
   return (
