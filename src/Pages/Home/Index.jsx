@@ -23,15 +23,11 @@ const Home = () => {
               return (
                 <div key={element._id} className="card__recipe">
                   <p className="subtitulo subtitulo-hover">{element.name}</p>
-                  <img src={element.image} alt={element.name} />
-                  {element.ingredients?.map((item, index) => {
-                    return (
-                      <p key={index} className="texto">
-                        {item}
-                      </p>
-                    );
-                  })}
-                  <p className="texto">{element.method}</p>
+                  <img
+                    src={element.image}
+                    alt={element.name}
+                    className="recipe__image"
+                  />
                   <Link
                     className="texto btn__geral"
                     to={`/recipe/${element._id}`}

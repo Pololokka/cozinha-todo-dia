@@ -20,7 +20,7 @@ const Recipe = () => {
       headers: { "Content-type": "application/json; charset=UTF-8" },
     });
     if (connect.status === 200) {
-      navigate("/");
+      navigate("/recipe/");
     }
   };
 
@@ -31,7 +31,11 @@ const Recipe = () => {
           <h2 className="subtitulo subtitulo-hover">{recipe.name}</h2>
           <section>
             <div className="card__single-recipe">
-              <img src={recipe.image} alt={recipe.name} />
+              <img
+                src={recipe.image}
+                alt={recipe.name}
+                className="recipe__image"
+              />
               {recipe.ingredients?.map((element, index) => {
                 return (
                   <p key={index} className="texto">
