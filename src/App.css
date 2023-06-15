@@ -279,3 +279,11 @@ html {
   width: 50%;
   margin: 0.5em;
 }
+
+.login__container {
+  background-color: var(--cor-card);
+  width: 80%;
+  border-radius: 15px;
+  margin: 1em 0;
+  padding: 1em 0;
+}

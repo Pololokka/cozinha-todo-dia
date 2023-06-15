@@ -1,29 +1,25 @@
 import "./Styles.css";
 
 import { handleChange } from "../../Func/handleChange";
-import {
-  defaultReg,
-  defaultLogin,
-  createAcc,
-  loginAcc,
-} from "../../Func/Account";
+import { defaultLogin, loginAcc } from "../../Func/Account";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../Components/Modal/Index";
 
 const Login = () => {
   const [formLogin, setFormLogin] = useState(defaultLogin);
-  const [formReg, setFormReg] = useState(defaultReg);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
+  document.title = "Cozinha todo dia - Login";
 
   const handleSubmitLogin = (event) => {
     event.preventDefault();
     loginAcc(formLogin, navigate);
-    console.log(formLogin);
   };
 
-  const handleSubmitCreateAcc = (event) => {
-    event.preventDefault();
-    createAcc(formReg);
+  const handleModal = () => {
+    setShow(!show);
   };
 
   return (
@@ -71,61 +67,16 @@ const Login = () => {
 
           <input type="submit" value="Entrar!" className="texto btn__geral" />
         </form>
+
+        <input
+          type="button"
+          value="Criar Conta!"
+          className="texto btn__geral"
+          onClick={handleModal}
+        />
       </section>
 
-      <section className="login__container">
-        <form onSubmit={handleSubmitCreateAcc} className="form__container">
-          <label htmlFor="name" className="texto">
-            Usuário
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="texto input__geral"
-            onChange={(event) => handleChange(event, setFormReg, formReg)}
-          />
-
-          <label htmlFor="emailReg" className="texto">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="emailReg"
-            className="texto input__geral"
-            onChange={(event) => handleChange(event, setFormReg, formReg)}
-          />
-
-          <label htmlFor="passwordReg" className="texto">
-            Senha
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="passwordReg"
-            className="texto input__geral"
-            onChange={(event) => handleChange(event, setFormReg, formReg)}
-          />
-
-          <label htmlFor="confirmPasswordReg" className="texto">
-            Confirme sua senha
-          </label>
-          <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPasswordReg"
-            className="texto input__geral"
-            onChange={(event) => handleChange(event, setFormReg, formReg)}
-          />
-
-          <input
-            type="submit"
-            value="Cadastrar!"
-            className="texto btn__geral"
-          />
-        </form>
-      </section>
+      <Modal show={show} handleModal={handleModal} />
     </main>
   );
 };
