@@ -20,11 +20,14 @@ export const createAcc = async (state) => {
     confirmPassword: state.confirmPassword,
   };
 
-  const connect = await fetch("http://localhost:3000/auth/register", {
-    method: "POST",
-    body: JSON.stringify(postData),
-    headers: { "Content-type": "application/json; charset=UTF-8" },
-  });
+  const connect = await fetch(
+    "https://cozinha-todo-dia-api.onrender.com/auth/register",
+    {
+      method: "POST",
+      body: JSON.stringify(postData),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    }
+  );
 
   if (!connect.ok) {
     throw new Error("Opa! Não foi possível criar o cadastro!");
@@ -40,11 +43,14 @@ export const loginAcc = async (state, useNavigate) => {
     password: state.password,
   };
 
-  const connect = await fetch("http://localhost:3000/auth/login", {
-    method: "POST",
-    body: JSON.stringify(postData),
-    headers: { "Content-type": "application/json; charset=UTF-8" },
-  });
+  const connect = await fetch(
+    "https://cozinha-todo-dia-api.onrender.com/auth/login",
+    {
+      method: "POST",
+      body: JSON.stringify(postData),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    }
+  );
 
   if (!connect.ok) {
     throw new Error("Opa! Não foi possível fazer o login!");

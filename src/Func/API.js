@@ -6,11 +6,14 @@ export const postRecipe = async (state) => {
     image: state.image,
   };
 
-  const connect = await fetch("http://localhost:3000/api/recipes", {
-    method: "POST",
-    body: JSON.stringify(postData),
-    headers: { "Content-type": "application/json; charset=UTF-8" },
-  });
+  const connect = await fetch(
+    "https://cozinha-todo-dia-api.onrender.com/api/recipes",
+    {
+      method: "POST",
+      body: JSON.stringify(postData),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    }
+  );
 
   if (!connect.ok) {
     throw new Error("Opa! Não foi possível postar a receita!");
@@ -21,22 +24,28 @@ export const postRecipe = async (state) => {
 };
 
 export const getAllRecipes = async (setState) => {
-  let recipes = await fetch("http://localhost:3000/api/recipes", {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-    },
-  }).then((res) => res.json());
+  let recipes = await fetch(
+    "https://cozinha-todo-dia-api.onrender.com/api/recipes",
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  ).then((res) => res.json());
   setState(recipes);
 };
 
 export const getRecipe = async (id, setState) => {
-  let recipes = await fetch(`http://localhost:3000/api/recipes/${id}`, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-    },
-  }).then((res) => res.json());
+  let recipes = await fetch(
+    `https://cozinha-todo-dia-api.onrender.com/api/recipes/${id}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  ).then((res) => res.json());
   setState(recipes);
 };
 
@@ -48,11 +57,14 @@ export const updateRecipe = async (id, state) => {
     image: state.image,
   };
 
-  const connect = await fetch(`http://localhost:3000/api/recipes/${id}`, {
-    method: "PUT",
-    body: JSON.stringify(putData),
-    headers: { "Content-type": "application/json; charset=UTF-8" },
-  });
+  const connect = await fetch(
+    `https://cozinha-todo-dia-api.onrender.com/api/recipes/${id}`,
+    {
+      method: "PUT",
+      body: JSON.stringify(putData),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    }
+  );
 
   if (!connect.ok) {
     throw new Error("Opa! Não foi possível atualizar a receita!");
@@ -72,10 +84,11 @@ export const defaultRecipe = {
   image: "",
 };
 
-export const handleSubmit = async (event, setState, state) => {
+export const handleSubmit = async (event, setState, state, navigate) => {
   event.preventDefault();
   postRecipe(state);
   setState(defaultRecipe);
+  navigate("/recipe/");
 };
 
 export const handleSubmitUpdate = async (event, setState, state) => {

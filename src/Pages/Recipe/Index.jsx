@@ -15,10 +15,13 @@ const Recipe = () => {
   }, []);
 
   const handleDelete = async () => {
-    const connect = await fetch(`http://localhost:3000/api/recipes/${id}`, {
-      method: "DELETE",
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-    });
+    const connect = await fetch(
+      `https://cozinha-todo-dia-api.onrender.com/api/recipes/${id}`,
+      {
+        method: "DELETE",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      }
+    );
     if (connect.status === 200) {
       navigate("/recipe/");
     }

@@ -5,10 +5,12 @@ import Input from "../../Components/Input/Index";
 import { handleSubmit, defaultRecipe } from "../../Func/API";
 import { handleChange, handleChangeIngredient } from "../../Func/handleChange";
 import { handleNewIngredient } from "../../Func/newIngredient";
+import { useNavigate } from "react-router-dom";
 
 const NewRecipe = () => {
   const [recipeForm, setRecipeForm] = useState(defaultRecipe);
   const [ingredient, setIngredient] = useState("");
+  const navigate = useNavigate();
 
   return (
     <main>
